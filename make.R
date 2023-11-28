@@ -95,9 +95,11 @@ northern_low_ridge_ebsa <- st_read("maps/northern_low_ridge.shp") %>% st_transfo
 hebrides_ebsa <- st_read("maps/hebrides_ebsa.shp") %>% st_transform(crs = st_crs(parc_corail)) %>% st_intersection(parc_corail) %>% mutate(Category = "EBSA")
 
 #IMMAs
+#Contact IMMA for shapefiles
 NC_imma <- st_read("maps/iucn-imma/iucn-imma.shp") %>% st_transform(crs = st_crs(parc_corail)) %>% st_intersection(parc_corail) %>% mutate(Category = "IMMA")
 
 #IBAs
+#Contact Birdlife for shapefiles
 NC_IBA <- st_read("maps/New_Calendonia_IBA/New_Calendonia_IBA.shp") %>% st_transform(crs = st_crs(parc_corail)) %>% st_intersection(parc_corail) %>% mutate(Category = "IBA")
 NC_ebsa <- bind_rows(norfolk_ebsa,northern_low_ridge_ebsa,hebrides_ebsa,NC_imma,NC_IBA)
 
